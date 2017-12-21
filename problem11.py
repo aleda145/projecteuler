@@ -1,3 +1,4 @@
+# EXTREMELY UGLY SOLUTION!
 
 
 number_grid = "0802229738150040007504050778521250779108"\
@@ -22,28 +23,86 @@ number_grid = "0802229738150040007504050778521250779108"\
               "0170547183515469169233486143520189196748"\
 
 print(number_grid)
-# create 2D array of correct size
-# number_array = [[0 for x in range(0, 20)] for y in range(0, 20)]
-# print(number_array)
-number_array=[]
+number_array = []
 
-for j in range(0, 800 ,2):
-    #number_array[i][j] =
+for j in range(0, 800, 2):
     str = number_grid[j]+number_grid[j+1]
     number_array.append(int(str))
-    print("coords:", j, "and string:", str)
+    # print("coords:", j, "and string:", str)
 
-#print(number_grid[])
 print(number_array)
 # vertical
+greatest_product= 0
 for j in range(0, 20):
     print("column: ", j)
-    for i in range(0+j, 400, 80):
-        # TODO should check all sums not just groups of 4! 
+    for i in range(0+j, 340, 20):
+
         print("product of", number_array[i], number_array[i+20], number_array[i+40],
               number_array[i+60])
-        product_sum = number_array[i] * number_array[i+20] * number_array[i+40] * number_array[i+60]
-        print(product_sum)
-# diagonal top left to bottom right
-#for i in range (0, 400, 21):
-    #print(number_array[i])
+        product = number_array[i] * number_array[i+20] * number_array[i+40] * number_array[i+60]
+        print(product)
+        if product > greatest_product:
+            greatest_product = product
+            print("new greatest product: ", greatest_product)
+
+    print("greatest product was: ", greatest_product)
+
+# diagonel top left to bottom right
+# dont go further than column 16 because they wont be valid solutions.
+for j in range(0, 17):
+    print("column: ", j)
+    for i in range(0+j, 340, 20):
+        print("product of", number_array[i], number_array[i + 21], number_array[i + 42],
+              number_array[i + 63])
+        product = number_array[i] * number_array[i + 21] * number_array[i + 42] * \
+            number_array[i + 63]
+        print(product)
+
+        if product > greatest_product:
+            greatest_product = product
+            print("new greatest product: ", greatest_product)
+
+    print("greatest product was: ", greatest_product)
+
+# diagonal bottom right to top left
+for j in range(0, 17):
+    print("column: ", j)
+    for i in range(399-j, 60, -20):
+        print("product of", number_array[i], number_array[i - 21], number_array[i - 42],
+              number_array[i - 63])
+        product = number_array[i] * number_array[i - 21] * number_array[i - 42] * \
+            number_array[i - 63]
+        print(product)
+        if product > greatest_product:
+            greatest_product = product
+            print("new greatest product: ", greatest_product)
+    print("greatest product was: ", greatest_product)
+
+# diagonal top right to bottom left
+for j in range(20, 3, -1):
+    print("column: ", j)
+    for i in range(19-j, 340, 19):
+        print("product of", number_array[i], number_array[i + 19], number_array[i + 38],
+              number_array[i + 57])
+        product = number_array[i] * number_array[i + 19] * number_array[i + 38] * \
+            number_array[i + 57]
+        print(product)
+        if product > greatest_product:
+            greatest_product = product
+            print("new greatest product: ", greatest_product)
+    print("greatest product was: ", greatest_product)
+
+# left to right
+for j in range(0, 17):
+    print("column: ", j)
+    for i in range(0 + j, 400, 20):
+        print("product of", number_array[i], number_array[i + 1], number_array[i + 2],
+              number_array[i + 3])
+        product = number_array[i] * number_array[i + 1] * number_array[i + 2] * \
+            number_array[i + 3]
+        print(product)
+        if product > greatest_product:
+            greatest_product = product
+            print("new greatest product: ", greatest_product)
+
+print("greatest product was: ", greatest_product)
