@@ -1,5 +1,5 @@
 # EXTREMELY UGLY SOLUTION!
-
+# I should definitely rewrite this but the problem is not an interesting one. 
 
 number_grid = "0802229738150040007504050778521250779108"\
               "4949994017811857608717409843694804566200"\
