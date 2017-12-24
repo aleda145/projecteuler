@@ -1,0 +1,6 @@
+doesnt even need to program anything for this problem
+there are 6 solutions to the 2x2 grid
+there are 2 solutions to 1x1 grid
+there are 20 solutions to a 3x3 grid
+this follows the pattern of (2n) choose n 
+so (2*20) choose 20 = 137846528820
